@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .success-message {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #4CAF50; 
+      color: white;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Emre Kurubaş">
+  <title>Okan University Login</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="okanicon.png">
+</head>
+<body class="login-page">
+  <header class="header-login">
+    <h1>
+        <img src="okanlogo.png" alt="Left Image" class="header-image left">
+        <a href="index.html">Okan University</a>
+        <img src="okanlogo.png" alt="Right Image" class="header-image right">
+    </h1>
+  </header>
+
+  <main class="main-login">
+    <section class="section-login">
+      <h2>Login Now!</h2>
+      <p>Fill out the form below to sign in:</p>
+      <form action="#" method="post" class="form-login" id="loginForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <input type="submit" value="Login" class="submit-button">
+      </form>
+      <p class="login-text">Don't have an account? <a href="register.html" class="login-link">Register</a></p>
+      <p class="login-text"><a href="help.html" class="login-link">Forgot your password?</a></p>
+      <p id="loginSuccessMessage" class="success-message">Successfully logged in!</p>
+    </section>
+  </main>
+
+  <footer class="footer-login">
+    <p>&copy; 2023 Okan University. All Rights Reserved.</p>
+  </footer>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+      
+      
+      const successMessage = document.getElementById('loginSuccessMessage');
+      successMessage.style.display = 'block';
+
+      
+      setTimeout(function() {
+        successMessage.style.display = 'none';
+        window.location.href = 'index.html'; 
+      }, 2000); 
+    });
+  </script>
+</body>
+</html>

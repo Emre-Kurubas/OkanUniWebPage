@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Emre Kurubaş">
+    <title>Contact Us - Help</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="icon" href="okanicon.png">
+    <style>
+        #successMessage {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+        }
+        
+        
+
+        .form-section form #firstName,
+        .form-section form #lastName {
+            width: calc(50% - 10px);
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+        }
+
+        .contact-section {
+            flex: 1;
+            padding: 20px;
+            
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+            margin-right: 10px;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 20px;
+            color: #4285f4;
+        }
+
+        .contact-section p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .form-section {
+            flex: 1;
+            padding: 20px;
+            
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            margin-top: 40px;
+            margin-left: 10px;
+        }
+
+        .form-section h2 {
+            margin-bottom: 20px;
+            color: #4285f4;
+        }
+        .form-section form h3 {
+            font-size: 16px;
+            display: inline-block;
+            width: calc(50% - 10px);
+            margin-bottom: 8px;
+        }
+        .form-section form .name-inputs {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .form-section form .name-inputs input {
+            width: calc(50% - 5px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+
+        .form-section form label,
+        .form-section form input,
+        .form-section form textarea {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-section form input[type="submit"] {
+            width: auto;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-section form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .contact-section,
+            .form-section {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .form-section form textarea {
+                width: calc(100% - 16px);
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+                margin-bottom: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-login">
+        <h1>
+            <img src="okanlogo.png" alt="Left Image" class="header-image left">
+            <a href="index.html">Okan University</a>
+            <img src="okanlogo.png" alt="Right Image" class="header-image right">
+        </h1>
+      </header>
+
+      <main class="section-with-gradient">
+        <div class="container">
+            <div class="contact-section">
+                <h2>Contact Us!</h2>
+                <p>Have questions? Need assistance? Please feel free to contact us using the form on the right.</p>
+            </div>
+
+            <div class="form-section">
+                <h2>Contact Form</h2>
+                <form id="contact-form" method="post" enctype="text/plain">
+                    <h3>First Name*</h3>
+                    <h3>Last Name</h3><br>
+                
+                    <div class="name-inputs">
+                        <input type="text" id="firstName" name="firstName" required>
+                        <input type="text" id="lastName" name="lastName">
+                    </div>
+                
+                    <h3>Email*</h3>
+                    <input type="email" id="email" name="email" required><br>
+                
+                    <h3>What can we help you with?</h3>
+                    <textarea id="query" name="query" rows="4" required></textarea><br>
+                
+                    <input type="submit" value="Send Email">
+                </form>
+                <div id="successMessage" >E-mail sent!</div>
+                
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-login">
+        <p>&copy; 2023 Okan University. All Rights Reserved.</p>
+      </footer>
+      <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            document.getElementById('successMessage').style.display = 'block';
+    
+            setTimeout(function() {
+                window.location.href = 'index.html';
+            }, 2000); 
+        });
+    </script>
+</body>
+</html>
